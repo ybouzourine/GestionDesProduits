@@ -23,7 +23,6 @@ public class ProductController implements ProductControllerInterface {
     }
 
     //Ajouter l'autorisation : seuls les administrateurs peuvent créer un nouveau produit.
-
     @PostMapping
     public ResponseEntity<ProductResponseDto> create(@RequestBody @Valid ProductCreationDto productCreationDto){
         return ResponseEntity.ok(productService.create(productCreationDto));

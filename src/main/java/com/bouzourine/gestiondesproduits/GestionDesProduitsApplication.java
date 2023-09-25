@@ -19,7 +19,7 @@ public class GestionDesProduitsApplication {
 
 
 	@Bean
-	CommandLineRunner startRolesAndUsers(ProductService productService){
+	CommandLineRunner startCreateProduct(ProductService productService){
 		return args -> {
 			productService.create(ProductCreationDto.builder()
 					.code("f230fh0g3")
