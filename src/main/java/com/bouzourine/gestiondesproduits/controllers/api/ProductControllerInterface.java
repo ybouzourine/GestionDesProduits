@@ -1,8 +1,8 @@
 package com.bouzourine.gestiondesproduits.controllers.api;
 
-import com.bouzourine.gestiondesproduits.dtos.ProductCreationDto;
-import com.bouzourine.gestiondesproduits.dtos.ProductResponseDto;
-import com.bouzourine.gestiondesproduits.dtos.ProductUpdateDto;
+import com.bouzourine.gestiondesproduits.dtos.product.ProductCreationDto;
+import com.bouzourine.gestiondesproduits.dtos.product.ProductResponseDto;
+import com.bouzourine.gestiondesproduits.dtos.product.ProductUpdateDto;
 import com.bouzourine.gestiondesproduits.utils.ErrorDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

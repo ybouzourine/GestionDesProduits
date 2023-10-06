@@ -1,4 +1,4 @@
-package com.bouzourine.gestiondesproduits.dtos;
+package com.bouzourine.gestiondesproduits.dtos.user;
 
 import com.bouzourine.gestiondesproduits.entities.Role;
 import lombok.AllArgsConstructor;

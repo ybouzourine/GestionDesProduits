@@ -1,6 +1,8 @@
 package com.bouzourine.gestiondesproduits.controllers.api;
 
-import com.bouzourine.gestiondesproduits.dtos.*;
+import com.bouzourine.gestiondesproduits.dtos.role.RoleCreationDto;
+import com.bouzourine.gestiondesproduits.dtos.role.RoleResponseDto;
+import com.bouzourine.gestiondesproduits.dtos.role.RoleUpdateDto;
 import com.bouzourine.gestiondesproduits.utils.ErrorDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

@@ -1,9 +1,9 @@
 package com.bouzourine.gestiondesproduits;
 
-import com.bouzourine.gestiondesproduits.dtos.ProductCreationDto;
-import com.bouzourine.gestiondesproduits.dtos.RoleCreationDto;
-import com.bouzourine.gestiondesproduits.dtos.RoleUserForm;
-import com.bouzourine.gestiondesproduits.dtos.UserCreationDto;
+import com.bouzourine.gestiondesproduits.dtos.product.ProductCreationDto;
+import com.bouzourine.gestiondesproduits.dtos.role.RoleCreationDto;
+import com.bouzourine.gestiondesproduits.dtos.role.RoleUserForm;
+import com.bouzourine.gestiondesproduits.dtos.user.UserCreationDto;
 import com.bouzourine.gestiondesproduits.entities.Category;
 import com.bouzourine.gestiondesproduits.entities.InventoryStatus;
 import com.bouzourine.gestiondesproduits.services.ProductService;

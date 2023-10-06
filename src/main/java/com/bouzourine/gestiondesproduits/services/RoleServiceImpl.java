@@ -1,8 +1,8 @@
 package com.bouzourine.gestiondesproduits.services;
 
-import com.bouzourine.gestiondesproduits.dtos.RoleCreationDto;
-import com.bouzourine.gestiondesproduits.dtos.RoleResponseDto;
-import com.bouzourine.gestiondesproduits.dtos.RoleUpdateDto;
+import com.bouzourine.gestiondesproduits.dtos.role.RoleCreationDto;
+import com.bouzourine.gestiondesproduits.dtos.role.RoleResponseDto;
+import com.bouzourine.gestiondesproduits.dtos.role.RoleUpdateDto;
 import com.bouzourine.gestiondesproduits.entities.Role;
 import com.bouzourine.gestiondesproduits.exceptions.EntityAlreadyExistsException;
 import com.bouzourine.gestiondesproduits.exceptions.EntityInvalidException;
