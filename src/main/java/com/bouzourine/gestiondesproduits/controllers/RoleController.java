@@ -1,9 +1,9 @@
 package com.bouzourine.gestiondesproduits.controllers;
 
 import com.bouzourine.gestiondesproduits.controllers.api.RoleControllerInterface;
-import com.bouzourine.gestiondesproduits.dtos.RoleCreationDto;
-import com.bouzourine.gestiondesproduits.dtos.RoleResponseDto;
-import com.bouzourine.gestiondesproduits.dtos.RoleUpdateDto;
+import com.bouzourine.gestiondesproduits.dtos.role.RoleCreationDto;
+import com.bouzourine.gestiondesproduits.dtos.role.RoleResponseDto;
+import com.bouzourine.gestiondesproduits.dtos.role.RoleUpdateDto;
 import com.bouzourine.gestiondesproduits.services.RoleService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

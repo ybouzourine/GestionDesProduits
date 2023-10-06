@@ -1,10 +1,10 @@
 package com.bouzourine.gestiondesproduits.controllers;
 
 import com.bouzourine.gestiondesproduits.controllers.api.UserControllerInterface;
-import com.bouzourine.gestiondesproduits.dtos.RoleUserForm;
-import com.bouzourine.gestiondesproduits.dtos.UserCreationDto;
-import com.bouzourine.gestiondesproduits.dtos.UserResponseDto;
-import com.bouzourine.gestiondesproduits.dtos.UserUpdateDto;
+import com.bouzourine.gestiondesproduits.dtos.role.RoleUserForm;
+import com.bouzourine.gestiondesproduits.dtos.user.UserCreationDto;
+import com.bouzourine.gestiondesproduits.dtos.user.UserResponseDto;
+import com.bouzourine.gestiondesproduits.dtos.user.UserUpdateDto;
 import com.bouzourine.gestiondesproduits.entities.User;
 import com.bouzourine.gestiondesproduits.services.UserService;
 import jakarta.validation.Valid;

@@ -1,6 +1,9 @@
 package com.bouzourine.gestiondesproduits.controllers.api;
 
-import com.bouzourine.gestiondesproduits.dtos.*;
+import com.bouzourine.gestiondesproduits.dtos.role.RoleUserForm;
+import com.bouzourine.gestiondesproduits.dtos.user.UserCreationDto;
+import com.bouzourine.gestiondesproduits.dtos.user.UserResponseDto;
+import com.bouzourine.gestiondesproduits.dtos.user.UserUpdateDto;
 import com.bouzourine.gestiondesproduits.entities.User;
 import com.bouzourine.gestiondesproduits.utils.ErrorDto;
 import io.swagger.v3.oas.annotations.Operation;

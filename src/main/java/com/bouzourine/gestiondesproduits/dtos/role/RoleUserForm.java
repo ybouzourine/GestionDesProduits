@@ -1,4 +1,4 @@
-package com.bouzourine.gestiondesproduits.dtos;
+package com.bouzourine.gestiondesproduits.dtos.role;
 
 import com.bouzourine.gestiondesproduits.utils.RoleErrorCodes;
 import com.bouzourine.gestiondesproduits.utils.UserErrorCodes;

@@ -1,4 +1,4 @@
-package com.bouzourine.gestiondesproduits.dtos;
+package com.bouzourine.gestiondesproduits.dtos.role;
 
 import com.bouzourine.gestiondesproduits.utils.RoleErrorCodes;
 import jakarta.validation.constraints.NotBlank;
@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
-public class RoleUpdateDto {
+public class RoleCreationDto {
 
     @Size(max = 30, message = RoleErrorCodes.ROLENAME_INVALID_SIZE)
     @NotBlank(message = RoleErrorCodes.ROLENAME_FILED_CANNOT_BE_NULL_OR_BLANK)

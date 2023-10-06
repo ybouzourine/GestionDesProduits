@@ -1,9 +1,9 @@
 package com.bouzourine.gestiondesproduits.controllers;
 
 import com.bouzourine.gestiondesproduits.controllers.api.ProductControllerInterface;
-import com.bouzourine.gestiondesproduits.dtos.ProductCreationDto;
-import com.bouzourine.gestiondesproduits.dtos.ProductResponseDto;
-import com.bouzourine.gestiondesproduits.dtos.ProductUpdateDto;
+import com.bouzourine.gestiondesproduits.dtos.product.ProductCreationDto;
+import com.bouzourine.gestiondesproduits.dtos.product.ProductResponseDto;
+import com.bouzourine.gestiondesproduits.dtos.product.ProductUpdateDto;
 import com.bouzourine.gestiondesproduits.services.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
