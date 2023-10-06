@@ -23,28 +23,32 @@ public class ProductController implements ProductControllerInterface {
     }
 
     //Ajouter l'autorisation : seuls les administrateurs peuvent créer un nouveau produit.
+    @Override
     @PostMapping
     public ResponseEntity<ProductResponseDto> create(@RequestBody @Valid ProductCreationDto productCreationDto){
         return ResponseEntity.ok(productService.create(productCreationDto));
     }
-
+    @Override
     @GetMapping
     public ResponseEntity<List<ProductResponseDto>> getAll(){
         return ResponseEntity.ok(productService.getAll());
     }
 
+    @Override
     @GetMapping("/{id}")
     public ResponseEntity<ProductResponseDto> getById(@PathVariable Long id){
         return ResponseEntity.ok(productService.getById(id));
     }
 
     //Ajouter l'autorisation : seuls les administrateurs peuvent effectuer la mise à jour d'un produit.
+    @Override
     @PatchMapping("/{id}")
     public ResponseEntity<ProductResponseDto> update(@PathVariable Long id, @RequestBody @Valid ProductUpdateDto productUpdateDto){
         return ResponseEntity.ok(productService.update(id, productUpdateDto));
     }
 
     //Ajouter l'autorisation : seul l'administrateur peut supprimer un produit.
+    @Override
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         productService.delete(id);

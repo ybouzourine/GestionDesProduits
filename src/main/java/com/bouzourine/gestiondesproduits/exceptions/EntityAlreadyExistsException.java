@@ -10,12 +10,12 @@ public class EntityAlreadyExistsException extends EntityException{
 
     public static final String MESSAGE = "ETITY_%s_ALREADY_EXIST";
 
-    public EntityAlreadyExistsException(){
-        super(String.format(MESSAGE, ProductErrorCodes.ENTITY_TYPE));
+    public EntityAlreadyExistsException(String entityType){
+        super(String.format(MESSAGE, entityType));
     }
 
-    public EntityAlreadyExistsException(List<String> errors){
-        super(String.format(MESSAGE, ProductErrorCodes.ENTITY_TYPE), errors);
+    public EntityAlreadyExistsException(String entityType, List<String> errors){
+        super(String.format(MESSAGE, entityType), errors);
     }
 
 

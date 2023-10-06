@@ -110,15 +110,17 @@ public class ProductControllerTest {
     );
 
 
-    private final EntityNotFoundException entityNotFoundException = new EntityNotFoundException();
+    private final EntityNotFoundException entityNotFoundException = new EntityNotFoundException(ProductErrorCodes.ENTITY_TYPE);
 
     private final EntityAlreadyExistsException entityAlreadyExistsException = new EntityAlreadyExistsException(
+            ProductErrorCodes.ENTITY_TYPE,
             new ArrayList<>(
                     Arrays.asList(ProductErrorCodes.NAME_PRODUCT_ALREADY_EXISTS,
                             ProductErrorCodes.CODE_PRODUCT_ALREADY_EXISTS )
             )
     );
     private final EntityInvalidException entityInvalidException = new EntityInvalidException(
+            ProductErrorCodes.ENTITY_TYPE,
             new ArrayList<>(
                     Arrays.asList(ProductErrorCodes.NAME_PRODUCT_ALREADY_EXISTS,
                             ProductErrorCodes.CODE_PRODUCT_ALREADY_EXISTS )
