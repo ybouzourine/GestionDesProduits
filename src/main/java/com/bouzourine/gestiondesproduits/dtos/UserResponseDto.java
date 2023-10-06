@@ -12,7 +12,6 @@ import java.util.Collection;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder(toBuilder = true)
 public class UserResponseDto {
     private Long id;
     private String username;
