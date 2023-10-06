@@ -42,7 +42,7 @@ public class ProductServiceImpl implements ProductService {
             errors.add(ProductErrorCodes.NAME_PRODUCT_ALREADY_EXISTS);
         }
         if (!errors.isEmpty()) {
-            throw new EntityAlreadyExistsException(errors);
+            throw new EntityAlreadyExistsException(ProductErrorCodes.ENTITY_TYPE, errors);
         }
         Product productSaved = productRepository.saveAndFlush(product);
         return modelMapper.map(productSaved, ProductResponseDto.class);
@@ -64,7 +64,7 @@ public class ProductServiceImpl implements ProductService {
     public ProductResponseDto getById(Long id) {
         return productRepository.findById(id)
                 .map(product -> modelMapper.map(product, ProductResponseDto.class))
-                .orElseThrow(EntityNotFoundException::new);
+                .orElseThrow(() ->new  EntityNotFoundException(ProductErrorCodes.ENTITY_TYPE));
     }
 
 
@@ -72,7 +72,7 @@ public class ProductServiceImpl implements ProductService {
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public ProductResponseDto update(Long id, ProductUpdateDto productUpdateDto) {
         Product oldProduct = productRepository.findById(id)
-                .orElseThrow(EntityNotFoundException::new);
+                .orElseThrow(() ->new EntityNotFoundException(ProductErrorCodes.ENTITY_TYPE));
         List<String> errors = new ArrayList<>();
         if (!oldProduct.getCode().equals(productUpdateDto.getCode()) && productRepository.isCodeExistsInProducts(productUpdateDto.getCode())) {
             errors.add(ProductErrorCodes.CODE_PRODUCT_ALREADY_EXISTS);
@@ -81,7 +81,7 @@ public class ProductServiceImpl implements ProductService {
             errors.add(ProductErrorCodes.NAME_PRODUCT_ALREADY_EXISTS);
         }
         if (!errors.isEmpty()) {
-            throw new EntityInvalidException(errors);
+            throw new EntityInvalidException(ProductErrorCodes.ENTITY_TYPE, errors);
         }
         oldProduct.setCode(productUpdateDto.getCode());
         oldProduct.setName(productUpdateDto.getName());

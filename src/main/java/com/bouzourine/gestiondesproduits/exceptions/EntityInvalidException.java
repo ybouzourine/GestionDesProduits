@@ -8,11 +8,11 @@ public class EntityInvalidException extends EntityException{
 
     public static final String MESSAGE = "ETITY_%s_INVALID";
 
-    public EntityInvalidException() {
-        super(String.format(MESSAGE, ProductErrorCodes.ENTITY_TYPE));
+    public EntityInvalidException(String entityType) {
+        super(String.format(MESSAGE, entityType));
     }
 
-    public EntityInvalidException(List<String> errors){
-        super(String.format(MESSAGE, ProductErrorCodes.ENTITY_TYPE), errors);
+    public EntityInvalidException(String entityType, List<String> errors){
+        super(String.format(MESSAGE, entityType), errors);
     }
 }

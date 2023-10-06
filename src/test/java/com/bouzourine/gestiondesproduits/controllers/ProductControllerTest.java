@@ -9,6 +9,8 @@ import com.bouzourine.gestiondesproduits.exceptions.EntityAlreadyExistsException
 import com.bouzourine.gestiondesproduits.exceptions.EntityInvalidException;
 import com.bouzourine.gestiondesproduits.exceptions.EntityNotFoundException;
 import com.bouzourine.gestiondesproduits.services.ProductService;
+import com.bouzourine.gestiondesproduits.services.RoleService;
+import com.bouzourine.gestiondesproduits.services.UserService;
 import com.bouzourine.gestiondesproduits.utils.ProductErrorCodes;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -41,6 +43,13 @@ public class ProductControllerTest {
 
     @MockBean
     private ProductService productServiceMock;
+
+    @MockBean
+    private UserService userServiceMock;
+
+    @MockBean
+    private RoleService roleServiceMock;
+
 
     private final ProductResponseDto productResponseDto = ProductResponseDto.builder()
             .id(1L)
@@ -110,15 +119,17 @@ public class ProductControllerTest {
     );
 
 
-    private final EntityNotFoundException entityNotFoundException = new EntityNotFoundException();
+    private final EntityNotFoundException entityNotFoundException = new EntityNotFoundException(ProductErrorCodes.ENTITY_TYPE);
 
     private final EntityAlreadyExistsException entityAlreadyExistsException = new EntityAlreadyExistsException(
+            ProductErrorCodes.ENTITY_TYPE,
             new ArrayList<>(
                     Arrays.asList(ProductErrorCodes.NAME_PRODUCT_ALREADY_EXISTS,
                             ProductErrorCodes.CODE_PRODUCT_ALREADY_EXISTS )
             )
     );
     private final EntityInvalidException entityInvalidException = new EntityInvalidException(
+            ProductErrorCodes.ENTITY_TYPE,
             new ArrayList<>(
                     Arrays.asList(ProductErrorCodes.NAME_PRODUCT_ALREADY_EXISTS,
                             ProductErrorCodes.CODE_PRODUCT_ALREADY_EXISTS )
