@@ -1,8 +1,6 @@
 package com.bouzourine.gestiondesproduits.controllers.api;
 
-import com.bouzourine.gestiondesproduits.dtos.ProductCreationDto;
-import com.bouzourine.gestiondesproduits.dtos.ProductResponseDto;
-import com.bouzourine.gestiondesproduits.dtos.ProductUpdateDto;
+import com.bouzourine.gestiondesproduits.dtos.*;
 import com.bouzourine.gestiondesproduits.utils.ErrorDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -16,22 +14,23 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-@Tag(name = "Product")
-public interface ProductControllerInterface {
+@Tag(name = "Role")
+public interface RoleControllerInterface {
+
     @Operation(
-            description = "Create a New Product",
-            summary = "This operation allows you to create a new product.",
+            description = "Create a New Role",
+            summary = "This operation allows you to create a new role.",
             responses = {
                     @ApiResponse(
-                            description = "Success - Product creation was successful. The product has been created and successfully recorded in the database.",
+                            description = "Success - Role creation was successful. The role has been created and successfully recorded in the database.",
                             responseCode = "200",
                             content = @Content(
                                     mediaType = "application/json",
-                                    schema = @Schema(implementation = ProductResponseDto.class)
+                                    schema = @Schema(implementation = RoleResponseDto.class)
                             )
                     ),
                     @ApiResponse(
-                            description = "Conflict - This response indicates a conflict when trying to create a product with a name or code that already exists in the database.",
+                            description = "Conflict - This response indicates a conflict when trying to create a role with a roleName that already exists in the database.",
                             responseCode = "409",
                             content = @Content(
                                     mediaType = "application/json",
@@ -48,41 +47,41 @@ public interface ProductControllerInterface {
                     )
             }
     )
-    ResponseEntity<ProductResponseDto> create(@RequestBody(description = "product to be created.") ProductCreationDto productCreationDto);
+    ResponseEntity<RoleResponseDto> create(@RequestBody(description = "role to be created.") RoleCreationDto roleCreationDto);
 
     @Operation(
-            description = "Retrieve a List of All Products",
-            summary = "This operation retrieves a list of all products from the database or an empty list if no products exist.",
+            description = "Retrieve a List of All Roles",
+            summary = "This operation retrieves a list of all roles from the database or an empty list if no roles exist.",
             responses = {
                     @ApiResponse(
-                            description = "Success - The list of products has been successfully retrieved.",
+                            description = "Success - The list of roles has been successfully retrieved.",
                             responseCode = "200",
                             content = @Content(
                                     mediaType = "application/json",
                                     array = @ArraySchema(
-                                            schema = @Schema(implementation = ProductResponseDto.class)
+                                            schema = @Schema(implementation = RoleResponseDto.class)
                                     )
                             )
                     )
             }
 
     )
-    ResponseEntity<List<ProductResponseDto>> getAll();
+    ResponseEntity<List<RoleResponseDto>> getAll();
 
     @Operation(
-            description = "Retrieve Product Details by ID",
-            summary = "This operation allows you to retrieve details for a product by its unique ID.",
+            description = "Retrieve Role Details by ID",
+            summary = "This operation allows you to retrieve details for a role by its unique ID.",
             responses = {
                     @ApiResponse(
-                            description = "Success - Product details have been successfully retrieved.",
+                            description = "Success - Role details have been successfully retrieved.",
                             responseCode = "200",
                             content = @Content(
                                     mediaType = "application/json",
-                                    schema = @Schema(implementation = ProductResponseDto.class)
+                                    schema = @Schema(implementation = RoleResponseDto.class)
                             )
                     ),
                     @ApiResponse(
-                            description = "Not Found - This response indicates that the requested product does not exist.",
+                            description = "Not Found - This response indicates that the requested role does not exist.",
                             responseCode = "404",
                             content = @Content(
                                     mediaType = "application/json",
@@ -91,22 +90,22 @@ public interface ProductControllerInterface {
                     )
             }
     )
-    ResponseEntity<ProductResponseDto> getById(@Parameter(description = "id of product to be searched") Long id);
+    ResponseEntity<RoleResponseDto> getById(@Parameter(description = "id of role to be searched") Long id);
 
     @Operation(
-            description = "Update a Product",
-            summary = "This operation allows you to update a product if it exists.",
+            description = "Update a Role",
+            summary = "This operation allows you to update a role if it exists.",
             responses = {
                     @ApiResponse(
-                            description = "Success - Product update was successful. The product has been updated in the database.",
+                            description = "Success - Role update was successful. The role has been updated in the database.",
                             responseCode = "200",
                             content = @Content(
                                     mediaType = "application/json",
-                                    schema = @Schema(implementation = ProductResponseDto.class)
+                                    schema = @Schema(implementation = RoleResponseDto.class)
                             )
                     ),
                     @ApiResponse(
-                            description = "Conflict - This response indicates a conflict when trying to update a product with a name or code that already exists in the database.",
+                            description = "Conflict - This response indicates a conflict when trying to update a role with a roleName that already exists in the database.",
                             responseCode = "409",
                             content = @Content(
                                     mediaType = "application/json",
@@ -122,7 +121,7 @@ public interface ProductControllerInterface {
                             )
                     ),
                     @ApiResponse(
-                            description = "Not Found - This response indicates that the requested product does not exist.",
+                            description = "Not Found - This response indicates that the requested role does not exist.",
                             responseCode = "404",
                             content = @Content(
                                     mediaType = "application/json",
@@ -131,18 +130,18 @@ public interface ProductControllerInterface {
                     )
             }
     )
-    ResponseEntity<ProductResponseDto> update(@Parameter(description = "id of product to be updated.") Long id,@RequestBody(description = "product to be updated.") ProductUpdateDto productUpdateDto);
+    ResponseEntity<RoleResponseDto> update(@Parameter(description = "id of role to be updated.") Long id,@RequestBody(description = "role to be updated.") RoleUpdateDto roleUpdateDto);
 
     @Operation(
-            description = "Delete a Product",
-            summary = "This operation deletes a product with the specified ID.",
+            description = "Delete a Role",
+            summary = "This operation deletes a role with the specified ID.",
             responses = {
                     @ApiResponse(
-                            description = "No Content - The product has been successfully deleted.",
+                            description = "No Content - The role has been successfully deleted.",
                             responseCode = "204"
                     )
             }
 
     )
-    ResponseEntity<Void> delete(@Parameter(description = "id of product to be deleted.") Long id);
+    ResponseEntity<Void> delete(@Parameter(description = "id of role to be deleted.") Long id);
 }

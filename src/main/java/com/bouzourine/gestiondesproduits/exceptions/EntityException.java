@@ -7,11 +7,12 @@ import java.util.List;
 @Getter
 public class EntityException extends RuntimeException{
     private List<String> errors;
-    public EntityException(String message){
-        super(message);
+
+    public EntityException(String entityType){
+        super(entityType);
     }
-    public EntityException(String message, List<String> errors){
-        super(message);
+    public EntityException(String entityType, List<String> errors){
+        super(entityType);
         this.errors = errors;
     }
 }

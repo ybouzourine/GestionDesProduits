@@ -1,9 +1,14 @@
 package com.bouzourine.gestiondesproduits;
 
 import com.bouzourine.gestiondesproduits.dtos.ProductCreationDto;
+import com.bouzourine.gestiondesproduits.dtos.RoleCreationDto;
+import com.bouzourine.gestiondesproduits.dtos.RoleUserForm;
+import com.bouzourine.gestiondesproduits.dtos.UserCreationDto;
 import com.bouzourine.gestiondesproduits.entities.Category;
 import com.bouzourine.gestiondesproduits.entities.InventoryStatus;
 import com.bouzourine.gestiondesproduits.services.ProductService;
+import com.bouzourine.gestiondesproduits.services.RoleService;
+import com.bouzourine.gestiondesproduits.services.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,8 +24,37 @@ public class GestionDesProduitsApplication {
 
 
 	@Bean
-	CommandLineRunner startCreateProduct(ProductService productService){
+	CommandLineRunner startCreateProduct(ProductService productService, UserService userService, RoleService roleService){
 		return args -> {
+			userService.create(UserCreationDto.builder()
+					.username("admin")
+					.password("123")
+					.build());
+			userService.create(UserCreationDto.builder()
+					.username("user")
+					.password("123")
+					.build());
+
+			roleService.create(RoleCreationDto.builder()
+					.roleName("ADMIN")
+					.build());
+			roleService.create(RoleCreationDto.builder()
+					.roleName("USER")
+					.build());
+
+			userService.addRoleToUser(RoleUserForm.builder()
+					.roleName("ADMIN")
+					.username("admin")
+					.build());
+			userService.addRoleToUser(RoleUserForm.builder()
+					.roleName("USER")
+					.username("admin")
+					.build());
+			userService.addRoleToUser(RoleUserForm.builder()
+					.roleName("USER")
+					.username("user")
+					.build());
+
 			productService.create(ProductCreationDto.builder()
 					.code("f230fh0g3")
 					.name("Bamboo Watch")
