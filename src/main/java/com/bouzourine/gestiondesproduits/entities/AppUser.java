@@ -1,5 +1,6 @@
 package com.bouzourine.gestiondesproduits.entities;
 
+import com.bouzourine.gestiondesproduits.entities.AppRole;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -16,18 +17,15 @@ import java.util.Collection;
 @AllArgsConstructor
 @Builder(toBuilder = true)
 @Table(name = "users")
-public class User {
+public class AppUser {
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column(name = "username", length = 30)
     private String username;
+    @Column(name = "password")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Column(name = "password", length = 30)
     private String password;
     @ManyToMany(fetch = FetchType.EAGER)
-    private Collection<Role> roles = new ArrayList<>();
-
+    private Collection<AppRole> appRoles = new ArrayList<>();
 }

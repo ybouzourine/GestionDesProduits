@@ -1,4 +1,4 @@
-package com.bouzourine.gestiondesproduits.dtos.product;
+package com.bouzourine.gestiondesproduits.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

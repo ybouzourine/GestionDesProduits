@@ -1,8 +1,8 @@
 package com.bouzourine.gestiondesproduits.services;
 
-import com.bouzourine.gestiondesproduits.dtos.product.ProductCreationDto;
-import com.bouzourine.gestiondesproduits.dtos.product.ProductResponseDto;
-import com.bouzourine.gestiondesproduits.dtos.product.ProductUpdateDto;
+import com.bouzourine.gestiondesproduits.dtos.ProductCreationDto;
+import com.bouzourine.gestiondesproduits.dtos.ProductResponseDto;
+import com.bouzourine.gestiondesproduits.dtos.ProductUpdateDto;
 import com.bouzourine.gestiondesproduits.entities.Category;
 import com.bouzourine.gestiondesproduits.entities.InventoryStatus;
 import com.bouzourine.gestiondesproduits.entities.Product;

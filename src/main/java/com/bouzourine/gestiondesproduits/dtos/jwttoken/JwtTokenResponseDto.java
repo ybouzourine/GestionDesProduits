@@ -1,4 +1,4 @@
-package com.bouzourine.gestiondesproduits.dtos.role;
+package com.bouzourine.gestiondesproduits.dtos.jwttoken;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
-public class RoleResponseDto {
-
-    Long id;
-    String roleName;
+public class JwtTokenResponseDto {
+    String accessToken;
+    String refreshToken;
 }
