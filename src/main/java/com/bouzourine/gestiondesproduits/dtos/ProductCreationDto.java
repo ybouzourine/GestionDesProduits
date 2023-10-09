@@ -1,4 +1,4 @@
-package com.bouzourine.gestiondesproduits.dtos.product;
+package com.bouzourine.gestiondesproduits.dtos;
 import com.bouzourine.gestiondesproduits.entities.Category;
 import com.bouzourine.gestiondesproduits.entities.InventoryStatus;
 import com.bouzourine.gestiondesproduits.utils.ProductErrorCodes;

@@ -1,16 +1,15 @@
 package com.bouzourine.gestiondesproduits.controllers;
 
-import com.bouzourine.gestiondesproduits.dtos.product.ProductCreationDto;
-import com.bouzourine.gestiondesproduits.dtos.product.ProductResponseDto;
-import com.bouzourine.gestiondesproduits.dtos.product.ProductUpdateDto;
+import com.bouzourine.gestiondesproduits.dtos.ProductCreationDto;
+import com.bouzourine.gestiondesproduits.dtos.ProductResponseDto;
+import com.bouzourine.gestiondesproduits.dtos.ProductUpdateDto;
 import com.bouzourine.gestiondesproduits.entities.Category;
 import com.bouzourine.gestiondesproduits.entities.InventoryStatus;
 import com.bouzourine.gestiondesproduits.exceptions.EntityAlreadyExistsException;
 import com.bouzourine.gestiondesproduits.exceptions.EntityInvalidException;
 import com.bouzourine.gestiondesproduits.exceptions.EntityNotFoundException;
+import com.bouzourine.gestiondesproduits.services.AccountService;
 import com.bouzourine.gestiondesproduits.services.ProductService;
-import com.bouzourine.gestiondesproduits.services.RoleService;
-import com.bouzourine.gestiondesproduits.services.UserService;
 import com.bouzourine.gestiondesproduits.utils.ProductErrorCodes;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,10 +43,8 @@ public class ProductControllerTest {
     private ProductService productServiceMock;
 
     @MockBean
-    private UserService userServiceMock;
+    private AccountService accountService;
 
-    @MockBean
-    private RoleService roleServiceMock;
 
 
     private final ProductResponseDto productResponseDto = ProductResponseDto.builder()

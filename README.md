@@ -17,6 +17,24 @@ et que le code d'un produit est une chaine de caractère unique dans la BDD comp
 Supprimer un Produit : Supprimer un produit du système.
 Lister les Produits : Afficher une liste de tous les produits.
 
+Authentification :
+
+Pour récupérer un accessToken, vous devez fournir les paramètres suivants dans le DTO JwtTokenRequestDto :
+    grantType = "password" pour s'authentifier ou "refreshToken" pour récupérer un nouveau accessToken en fournissant un RefreshToken valid dans le champs refreshToken.
+    username = "user" ou "admin"
+    password = "1234"
+    withRefreshToken = true pour obtenir un refreshToken.
+    refreshToken : Si vous fournissez un refreshToken, vous pouvez obtenir un nouveau accessToken.
+
+Authentification et Gestion des Rôles
+
+Lorsque vous lancez l'application pour la première fois, deux rôles sont créés : "ADMIN" et "USER".
+Deux utilisateurs sont également créés pour tester l'application :
+    Un utilisateur avec le rôle USER, identifiant "user" et mot de passe "1234".
+    Un administrateur avec le rôle ADMIN, identifiant "admin" et mot de passe "1234".
+Le rôle USER permet uniquement de consulter la liste de tous les produits et les détails d'un produit.
+Le rôle ADMIN permet d'effectuer toutes les opérations précédentes, y compris la création d'un produit, la mise à jour d'un produit et la suppression d'un produit.
+
 Technologies Utilisées : 
 
 Java 17 : Langage de programmation orienté objet.

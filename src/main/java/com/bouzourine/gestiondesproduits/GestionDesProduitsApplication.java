@@ -1,59 +1,55 @@
 package com.bouzourine.gestiondesproduits;
 
-import com.bouzourine.gestiondesproduits.dtos.product.ProductCreationDto;
-import com.bouzourine.gestiondesproduits.dtos.role.RoleCreationDto;
-import com.bouzourine.gestiondesproduits.dtos.role.RoleUserForm;
-import com.bouzourine.gestiondesproduits.dtos.user.UserCreationDto;
+import com.bouzourine.gestiondesproduits.dtos.ProductCreationDto;
 import com.bouzourine.gestiondesproduits.entities.Category;
 import com.bouzourine.gestiondesproduits.entities.InventoryStatus;
+import com.bouzourine.gestiondesproduits.config.RsakeysConfig;
+import com.bouzourine.gestiondesproduits.entities.AppRole;
+import com.bouzourine.gestiondesproduits.entities.AppUser;
+import com.bouzourine.gestiondesproduits.services.AccountService;
 import com.bouzourine.gestiondesproduits.services.ProductService;
-import com.bouzourine.gestiondesproduits.services.RoleService;
-import com.bouzourine.gestiondesproduits.services.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.util.ArrayList;
 
 
 @SpringBootApplication
+@EnableConfigurationProperties(RsakeysConfig.class)
 public class GestionDesProduitsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GestionDesProduitsApplication.class, args);
 	}
 
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
 	@Bean
-	CommandLineRunner startCreateProduct(ProductService productService, UserService userService, RoleService roleService){
+	CommandLineRunner startCreateProduct(ProductService productService, AccountService accountService){
 		return args -> {
-			userService.create(UserCreationDto.builder()
-					.username("admin")
-					.password("123")
-					.build());
-			userService.create(UserCreationDto.builder()
-					.username("user")
-					.password("123")
-					.build());
 
-			roleService.create(RoleCreationDto.builder()
-					.roleName("ADMIN")
-					.build());
-			roleService.create(RoleCreationDto.builder()
-					.roleName("USER")
-					.build());
+			accountService.addNewRole(new AppRole(null, "USER"));
+			accountService.addNewRole(new AppRole(null, "ADMIN"));
 
-			userService.addRoleToUser(RoleUserForm.builder()
-					.roleName("ADMIN")
-					.username("admin")
-					.build());
-			userService.addRoleToUser(RoleUserForm.builder()
-					.roleName("USER")
-					.username("admin")
-					.build());
-			userService.addRoleToUser(RoleUserForm.builder()
-					.roleName("USER")
-					.username("user")
-					.build());
+
+			accountService.addNewUser(new AppUser(null, "user", "1234", new ArrayList<>()));
+			accountService.addNewUser(new AppUser(null, "admin", "1234", new ArrayList<>()));
+
+
+			accountService.addRoleToUser("user", "USER");
+			accountService.addRoleToUser("admin", "USER");
+			accountService.addRoleToUser("admin", "ADMIN");
+
+
+
 
 			productService.create(ProductCreationDto.builder()
 					.code("f230fh0g3")
